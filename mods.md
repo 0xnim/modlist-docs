@@ -122,13 +122,21 @@ Retrieves a mod by id.
 #### Parameters
 - **id**: string
 
+#### Example
+/2
+
 #### Response
 - **200 OK**
 
 ```
 {
   "data": {
-    //mod data
+    "id": 2,
+    "name": "Part Editor",
+    "identifier": "parteditor",
+    "author": "Cucumber Space",
+    "status": 1,
+    "description": "Edit all part stats in game!"
   }
 }
 ```
