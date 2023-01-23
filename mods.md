@@ -1,6 +1,6 @@
-# API Documentation
+# Mods API Documentation
 
-## Endpoints
+## Endpoints /api/mods
 
 ### GET /
 
