@@ -49,3 +49,32 @@ Retrieves a list of all versions for a specific mod.
   ]
 }
 ```
+
+
+### GET /id/:id
+
+#### Description
+Retrieves a version by id.
+
+#### Parameters
+- **id**: string
+
+#### Example
+/id/2
+
+#### Response
+- **200 OK**
+
+```
+{
+  "data": {
+    "id": 2,
+    "identifier": "parteditor",
+    "version": "v1.0.0",
+    "download": "https://github.com/cucumber-sp/PartEditor/releases/download/v1.0/PartEditor.dll",
+    "hash": "7ef663d2dabffad93bb271b39928cb4d",
+    "game_version": "1.5.9.6",
+    "dependencies": "1"
+  }
+}
+```
