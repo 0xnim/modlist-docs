@@ -84,12 +84,12 @@ SQL: WHERE name LIKE %search%
 #### Parameters
 - **name**: string
 
+#### Example
+/search/name/ui
+
 #### Response
 - **200 OK**
 
-#### Example
-
-/search/name/ui
 
 ```
 {
