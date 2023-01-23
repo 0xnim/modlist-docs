@@ -87,17 +87,31 @@ SQL: WHERE name LIKE %search%
 #### Response
 - **200 OK**
 
+#### Example
+
+/search/name/ui
+
 ```
 {
   "data": [
     {
-      //mod data
+      "id": 1,
+      "name": "UI Tools",
+      "identifier": "UITools",
+      "author": "Cucumber Space",
+      "status": 1,
+      "description": "A dependency mods to make implementing a lot of quality-of-life features much easier."
     },
     {
-      //mod data
+      "id": 4,
+      "name": "Build Settings",
+      "identifier": "BuildSettings",
+      "author": "StarMods",
+      "status": 1,
+      "description": "Build settings window and various changes to build mode. See the GitHub repository for a full list of features."
     }
   ]
-}  
+}
 ```
 
 ### GET /:id
