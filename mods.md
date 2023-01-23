@@ -29,6 +29,8 @@ Retrieves a list of all mods.
 #### Description
 Search mod by name.
 
+SQL: WHERE name LIKE %search%
+
 #### Parameters
 - **name**: string
 
