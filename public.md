@@ -2,6 +2,24 @@
 
 ## Endpoints
 
+### GET /health
+
+#### Description
+Check if the API is online.
+
+#### Example
+/health
+
+#### Response
+- **200 OK**
+
+```
+{
+	"message": "Healthy"
+}
+```
+
+
 ### GET /mods
 
 #### Description
@@ -123,7 +141,7 @@ Get all versions of a specific mod.
 Get a specific version of a mod.
 
 #### Example
-/mods/PartEditorInstaller/versions
+/mods/PartEditorInstaller/versions/1.0.0
 
 #### Response
 - **200 OK**
@@ -138,4 +156,129 @@ Get a specific version of a mod.
 		"changelog": "Initial Release"
 	}
 ]
+```
+
+### GET /versions/:versionID/files
+
+#### Description
+Get all files for a specific version.
+
+#### Example
+/versions/3/files
+
+#### Response
+- **200 OK**
+
+```
+[
+	{
+		"fileID": 1,
+		"modVersionID": "3",
+		"fileType": "mod",
+		"fileSize": 6656,
+		"fileURL": "https://github.com/Nim1com/ModInstallerList/releases/download/PartEditor/PartEditorInstaller.dll",
+		"uploadDate": "2023-05-01T00:00:00.000Z"
+	}
+]
+```
+
+### GET /files/:fileID
+
+#### Description
+Get a specific file.
+
+#### Example
+/files/1
+
+#### Response
+- **200 OK**
+
+```
+[
+	{
+		"fileID": 1,
+		"modVersionID": "3",
+		"fileType": "mod",
+		"fileSize": 6656,
+		"fileURL": "https://github.com/Nim1com/ModInstallerList/releases/download/PartEditor/PartEditorInstaller.dll",
+		"uploadDate": "2023-05-01T00:00:00.000Z"
+	}
+]
+```
+
+### GET /versions/:versionID/dependencies
+
+#### Description
+Get all dependencies for a specific version.
+
+#### Example
+/versions/3/dependencies
+
+#### Response
+- **200 OK**
+
+```
+[
+	{
+		"id": 2,
+		"modVersionID": "3",
+		"dependencyModID": "UITools",
+		"minimumDependencyVersion": "1.0.0",
+		"maximumDependencyVersion": "1.0.0",
+		"dependencyType": "required"
+	}
+]
+```
+
+### GET /all/:modID/:versionNumber
+
+#### Description
+Get everything required to install a specific mod version.
+
+#### Example
+/all/PartEditorInstaller/1.0.0?dependencies=optional
+
+#### Response
+- **200 OK**
+
+```
+{
+	"mod": {
+		"modID": "PartEditorInstaller",
+		"modName": "Part Editor Installer",
+		"modDescription": "Downloads Part Editor and its dependencies and deletes itself.",
+		"modAuthor": "nim",
+		"modVersion": "1.0.0",
+		"modReleaseDate": "2023-04-29T00:00:00.000Z",
+		"modTags": "installer",
+		"modIcon": null
+	},
+	"version": {
+		"modVersionID": 3,
+		"modID": "PartEditorInstaller",
+		"versionNumber": "1.0.0",
+		"releaseDate": "2023-04-29T00:00:00.000Z",
+		"changelog": "Initial Release"
+	},
+	"files": [
+		{
+			"fileID": 1,
+			"modVersionID": "3",
+			"fileType": "mod",
+			"fileSize": 6656,
+			"fileURL": "https://github.com/Nim1com/ModInstallerList/releases/download/PartEditor/PartEditorInstaller.dll",
+			"uploadDate": "2023-05-01T00:00:00.000Z"
+		}
+	],
+	"dependencies": [
+		{
+			"id": 2,
+			"modVersionID": "3",
+			"dependencyModID": "UITools",
+			"minimumDependencyVersion": "1.0.0",
+			"maximumDependencyVersion": "1.0.0",
+			"dependencyType": "required"
+		}
+	]
+}
 ```
